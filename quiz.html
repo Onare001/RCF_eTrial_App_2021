@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Quiz</title>
+	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" href="images/Rcf_logo.png">
+	<link rel="shortcut icon" href="images/Rcf_logo.png">
+	<link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+	<link rel="stylesheet" type="text/css" href="stylesheets/quizpage.css">
+	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+</head>
+
+<body id="content">
+
+<table style="width:100%">
+<!--Row 1-->
+	<tr>
+		<td>
+			<img src="images/Rcf_logo.png" id="rcfqlogo"/><p>
+		</td>
+		   
+		<td>
+		    <div class="timer">
+	<b id="timer">00:00:00</b>
+</div>
+		</td>
+	</tr>
+</table>
+
+	<div id="quiz">
+	<p>
+<!-- Tab links -->
+	<table style="width:60%">
+<div class="tab">
+	<tr>
+		<td>
+		   <button class="pick_course" onclick="openCourse(event, 'Course1')"id="defaultOpen">PHY 113</button>
+		</td>
+		   
+		   <td>
+		  <button class="pick_course" onclick="openCourse(event, 'Course2')">MAT 111</button>
+		</td>
+		   
+		<td>
+		   <button class="pick_course" onclick="openCourse(event, 'Course3')">STA 117</button>
+           </div>
+		</td>
+		   
+		<td>
+		  <button class="pick_course" onclick="openCourse(event, 'Course4')">CHM 111</button>
+		</td>
+	</tr>
+</div>
+&nbsp;
+</table>
+
+
+<!-- Questions for 4th Course -->
+<!-- Tab content -->
+<div id="Course1" class="tabcontent">
+  <h3>1.____________is the unit of force?</h3>
+  <p>
+  <form action="#">
+<!--Row 1-->
+		   
+		   <div id="option">
+		   &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="option1" name="answer" value="optionA"><label>&nbsp;&nbsp;Joule</div></label>
+           <p>
+<!--Row 2-->
+		   <div id="option">
+		   &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="option1" name="answer" value="OptionB"><label>&nbsp;&nbsp;Newton</div></label>
+          <p>  
+<!--Row 3-->
+		   <div id="option">
+		   &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="option1" name="answer" value="optionC"><label for="optionC">&nbsp;&nbsp;Watts</label>
+           </div><p>
+<!--Row 4-->
+		   <div id="option">
+		   &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="option1" name="answer" value="optionD"><label for="optionD">&nbsp;&nbsp;Kilogram</label>
+           </div><p>
+	</form></p>
+</div>
+
+
+<!-- Questions for 2nd Course -->
+<div id="Course2" class="tabcontent">
+  <h3>Course2</h3>
+  <p>Course2 question</p> 
+</div>
+
+
+<!-- Questions for 3rd Course -->
+<div id="Course3" class="tabcontent">
+  <h3>Course3</h3>
+  <p>Course3 Question</p>
+</div>
+
+
+<!-- Questions for 4th Course -->
+<div id="Course4" class="tabcontent">
+  <h3>Course4</h3>
+  <p>Course4 Question</p>
+</div>
+
+<table style="width:30%">
+<!-- Next/Previous -->
+	<tr>
+		<td>
+		   <button class="progres" id="previous">Previous</button>
+		</td>
+		   
+		   <td>
+		   <button class="progres" id="next">Next</button>
+		</td>
+</table>
+<p>
+
+<div>
+<div id="title">Attempted 3/60</div>
+<table border="1" cellspacing="5" cellpadding="5" id="question_num"  style="width:90%">
+	<tr>
+		<td><div class="qno">1</div></td><td><div class="qno">2</div></td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+		<td>11</td><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td>
+	</tr>
+	<tr>
+		<td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td><td>29</td><td>30</td>
+		<td>31</td><td>32</td><td>33</td><td>34</td><td>35</td><td>36</td><td>37</td><td>38</td><td>39</td><td>40</td>
+	</tr>
+	<tr>
+		<td><div class="qno">41</div></td><td><div class="qno">42</div></td><td>43</td><td>44</td><td>45</td><td>46</td><td>47</td><td>48</td><td>49</td><td>50</td>
+		<td>51</td><td>52</td><td>53</td><td>54</td><td>55</td><td>56</td><td>57</td><td>58</td><td>59</td><td>60</td>
+	</tr>
+</div>
+&nbsp;
+</table>
+</body>
+
+<script>
+function openCourse(evt, courseName) {
+  // Declare all variables
+  var i, tabcontent, pick_course;
+
+  // Get all elements with class="tabcontent" and hide them
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+
+  // Get all elements with class="pick_course" and remove the class "active"
+  pick_course = document.getElementsByClassName("pick_course");
+  for (i = 0; i < pick_course.length; i++) {
+    pick_course[i].className = pick_course[i].className.replace(" active", "");
+  }
+
+  // Show the current tab, and add an "active" class to the button that opened the tab
+  document.getElementById(courseName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+
+</script>
